@@ -1,0 +1,21 @@
+:root {
+    --ff-primary-color:  #6663FF;
+    --ff-white-color: #FFFFFF;
+    --ff-secondary-color:  #FFA21C;
+    --ff-light-gray-color: #F4F6FA;
+    --ff-primary-variant-color:  #5956FF;
+    --ff-black-color: #292C33;    
+    --ff-font-color: var(--ff-black-color);
+    --ff-dark-gray-color: #8F96A3;
+    --ff-font-year-color: var(--ff-dark-gray-color);
+    --ff-font-primary-color: var(--ff-primary-color);
+    --ff-font-secondary-text: var(--ff-dark-gray-color);
+    --header-height: 90px;
+    --footer-height: 125px;
+    --footer-bottom-height: 57px;
+    --menu-button-height: 45px;
+    --movie-card-height: 440px;
+    --movie-card-width: 270px;
+    --context-margin-top-bottom: 30px;
+    --txt-font: Artegra Sans;    
+  }

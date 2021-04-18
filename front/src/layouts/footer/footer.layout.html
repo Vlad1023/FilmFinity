@@ -1,0 +1,42 @@
+<div class="main-color">  
+  <div class="color-background ff-footer">  
+    <div class="logo">
+      <ff-logo/>
+      <div class="stores">
+        <el-link>
+          <img alt="App Store" src="../../assets/appStore.png">
+        </el-link>
+        <el-link>
+          <img alt="Google play" src="../../assets/googlePlay.png">
+        </el-link>       
+      </div>    
+    </div>
+    <div>
+      <router-link class="menu-item footer" to="/movies">{{ $t('header.movies') }}</router-link>
+      <router-link class="menu-item footer" to="/serials">{{ $t('header.serials') }}</router-link>
+      <router-link class="menu-item footer" to="/news">{{ $t('header.news') }}</router-link>
+      <router-link class="menu-item footer" to="/actors">{{ $t('header.actors') }}</router-link>
+    </div>
+    <div class="social-networks">
+      <div>{{ $t('footer.socialNetworks') }}</div>
+      <el-link>
+        <img alt="Google" src="../../assets/google.png">
+      </el-link>
+      <el-link>
+        <img alt="Twitter" src="../../assets/twitter.png">
+      </el-link>
+      <el-link>
+        <img alt="Facebook" src="../../assets/facebook.png">
+      </el-link>
+    </div>   
+  </div>
+  <div class="footer-color-background">
+    <div>
+      (с) {{ $t('footer.copyRight') }}
+    </div>
+    <el-link class="main-color">{{ $t('footer.termsOfUse') }}</el-link>
+    <el-link class="main-color privicy-police">{{ $t('footer.privacyPolicy') }}</el-link>
+  </div> 
+</div>
+
+

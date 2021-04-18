@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GenerateRuntimeConfigurationFiles>True</GenerateRuntimeConfigurationFiles>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="9.0.0" />
+    <Compile Remove="Migrations\20200627132622_addValidationData.cs" />
+    <Compile Remove="Migrations\20200627132622_addValidationData.Designer.cs" />
+    <Compile Remove="Migrations\20200603094133_InitialCreate.cs" />
+    <Compile Remove="Migrations\20200603094133_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20200606154510_CreateAndSeed.cs" />
+    <Compile Remove="Migrations\20200606154510_CreateAndSeed.Designer.cs" />
+    <Compile Remove="Migrations\20200618105551_CreateAndSeed.cs" />
+    <Compile Remove="Migrations\20200618105551_CreateAndSeed.Designer.cs" />
+    <Compile Remove="Migrations\20200701194412_addFavoritesValidation.cs" />
+    <Compile Remove="Migrations\20200701194412_addFavoritesValidation.Designer.cs" />
+    <Compile Remove="Migrations\20200701195009_addFavoritesValidation.cs" />
+    <Compile Remove="Migrations\20200701195009_addFavoritesValidation.Designer.cs" />
+    <Compile Remove="Migrations\20200701201638_addFavoritesValidation.cs" />
+    <Compile Remove="Migrations\20200701201638_addFavoritesValidation.Designer.cs" />
+    <Compile Remove="Migrations\20200701204231_addFavoritesValidation.cs" />
+    <Compile Remove="Migrations\20200701204231_addFavoritesValidation.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.4">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.4.1" />
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
+  </ItemGroup>
+
+</Project>

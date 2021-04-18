@@ -1,0 +1,90 @@
+{
+  "appTitle1": "Film",
+  "appTitle2": "Finity",
+  "locale": {
+    "language": "Мова",
+    "en": "Английська",
+    "ru": "Російська",
+    "ua": "Українська"
+  },
+  "header": {
+    "movies": "Фільми",
+    "serials": "Серіали",
+    "cartoons": "Мультфільми",
+    "news": "Новини",
+    "actors": "Актори"
+  },
+  "footer": {
+    "socialNetworks": "Соціальні мережі",
+    "termsOfUse": "Угода користувача",
+    "privacyPolicy": "Політика конфіденційності",
+    "copyRight": "Всі права захищені"
+  },
+  "registration": {
+    "signIn": "УВІЙТИ",
+    "createAccount": "Створити аккаунт",
+    "signUp": "Зареєструватися",
+    "haveAccount": "Вже є аккаунт?",
+    "entrance": "Вхід",
+    "accountСreated": "Аккаунт створено!",
+    "firstSuccessMessage": "Ти став частиною великого світу, де кожен може внести лепту в те, щоб процес пошуку фільму, серіалу або мультфільму був простіше та більш захоплююче.",
+    "secondSuccessMessage": "Уперед за переглядами, оцінками та коментарями!",
+    "errorsName": "Введіть ім'я користувача",
+    "errorsEmail": "Введіть email",
+    "errorsEmailRegistered": "Даний email вже зареєстрований",
+    "errorsPassword": "Введіть пароль",  
+    "userName": "Им`я користувача",
+    "password": "Пароль"
+  },
+  "news": {
+    "commentaries": "коментарів",
+    "fullRead": "Читати повністю",
+    "views": "переглядів"
+  },
+  "authorization": {
+    "signIn": "Увійдіть",
+    "enterLogin": "Введіть логін або email",
+    "enterPassword": "Введіть пароль",
+    "forgetPassword": "Забули пароль?",
+    "firstErrorMessage": "Дивно, здається ми не змогли знайти твої дан",
+    "secondErrorMessage": "Але вихід є!  Перевір правильність введених даних",
+    "firstUserAgreement": "Натискаючи Кнопку входу, ви приймаєте умови",
+    "secondUserAgreement": "Користувальницької угоди",
+    "haveAccount": "Немає облікового запису?",
+    "signUp": "Реєстрація",
+    "SignedIn": "Вхід виконано",
+    "firstCofnirmMessage": "Боже, як ми раді тебе бачити!",
+    "secondConfirmMessage": "Тисячі фільмів вже чекають твого",
+    "thirdConfirmMessage": "Перегляду, оцінки та коментарів"
+  },
+  "sideBar": {
+    "movies": "Мої фільми",
+    "favorites": "Вибране",
+    "сollections": "Збірки",
+    "reviews": "Рецензії",
+    "notifications": "Сповіщення",
+    "myFriends": "Мої друзі",
+    "settings": "Налаштування",
+    "logOut": "Вийти"
+  },
+  "favorite": {
+    "tile": "Плитка",
+    "list": "Список",
+    "value0": "Назва від А до Я",
+    "value1": "Назва від Я до А",
+    "value2": "Рейтинг по зростанню",
+    "value3": "Рейтинг по зменшенню",
+    "value4": "Рік по зростанню",
+    "value5": "Рік по зменшенню",
+    "value6": "Сортувати за"
+  },
+  "reviews":{
+    "Value0": "Назва від А до Я",
+    "Value1": "Назва від Я до А",
+    "Value2": "Рейтинг по зростанню",
+    "Value3": "Рейтинг за спаданням",
+    "Value4": "Дата за зростанням",
+    "Value5": "Дата за зростанням",
+    "Value6": "Сортувати по"
+  }
+}

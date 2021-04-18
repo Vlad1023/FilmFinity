@@ -1,0 +1,18 @@
+div.logo { 
+  font-style: normal;
+  font-weight: 600;
+  font-size: 21px;
+}
+
+i.logo {
+  font-size: 32px;  
+}
+
+.first-color {
+  color: var(--ff-white-color);
+}
+
+i.logo,
+.second-color {
+  color: var(--ff-secondary-color);
+}
