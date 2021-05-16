@@ -1,0 +1,92 @@
+<div class = "add-review-component-root">
+  <el-row>
+    <el-col :span="4" class = "first-column">
+      <el-image v-if = "!value" class = "movie-poster" fit ='cover' :src = '"StaticFiles/images/MoviePoster.png" | imageServerPath'></el-image>
+      <el-image v-else class = "movie-poster" fit ='cover' :src = 'value.imageSource | imageServerPath'></el-image>
+      <div class = "general-mark-label"><span>{{ $t('reviews.yourMark') }}</span></div>
+      <div class = "rate-general-wrap">
+        <span>{{ generalRate.toFixed() }}</span>
+        <el-rate
+        :value="generalRate/4"
+        class = "rate-general"
+        :max = "1"
+        disabled
+        text-color="var(--ff-font-primary-color)"
+        disabled-void-color = "#D2D5DA"
+        >
+        </el-rate>
+      </div>
+      <div class = "rate-el-wrap">
+        <span>{{ $t('reviews.directing') }}</span>
+        <el-rate
+          v-model='directingRate'
+          class = "category-rate"
+          text-color="var(--ff-font-primary-color)"
+          void-color = "#D2D5DA"
+        >
+        </el-rate>
+      </div>
+      <div class = "rate-el-wrap">
+        <span>{{ $t('reviews.plot') }}</span>
+        <el-rate
+          v-model='plotRate'
+          class = "category-rate"
+          text-color="var(--ff-font-primary-color)"
+          disabled-void-color = "#D2D5DA"
+        >
+        </el-rate>
+      </div>
+      <div class = "rate-el-wrap">
+        <span>{{ $t('reviews.entertainment') }}</span>
+        <el-rate
+          v-model='entertainmentRate'
+          class = "category-rate"
+          text-color="var(--ff-font-primary-color)"
+          disabled-void-color = "#D2D5DA"
+        >
+        </el-rate>
+      </div>
+      <div class = "rate-el-wrap">
+        <span>{{ $t('reviews.actors') }}</span>
+        <el-rate
+          v-model='actorsRate'
+          class = "category-rate"
+          text-color="var(--ff-font-primary-color)"
+          disabled-void-color = "#D2D5DA"
+        >
+        </el-rate>
+      </div>
+    </el-col>
+  <el-col :span="20" class = "second-column">
+    <div><span>{{ $t('reviews.movie/tvShow') }}</span></div>
+    <el-select v-model="value" value-key="imageSource" class = "movie-dropdown" :placeholder="[[ $t('reviews.select') ]]">
+      <template v-if="value" slot="prefix"><el-image class="prefix dropdown-img" :src='value.imageSource | imageServerPath'></el-image></template>
+      <template v-else slot="prefix"></template>
+      <el-option v-for="item in getShowsOptions" :key="item.value" :label="item.label" :value="item">
+      <el-image class = "dropdown-img" :src='item.imageSource | imageServerPath'></el-image> {{ item.label }}
+      </el-option>
+    </el-select>
+    <div class = "review-inputs">
+      <el-input v-model="reviewHeader" class = "header-input" :placeholder="[[ $t('reviews.reviewName') ]]"></el-input>
+      <div v-if="showMinHeaderLengthError" class = "error"><span>{{ $t('reviews.minLengthIs15') }}</span></div>
+      <el-input
+        v-model="reviewText"
+        class = "main-review-message"
+        type="textarea"
+        :rows="17"
+        resize="none"
+        :placeholder="[[ $t('reviews.yourReview') ]]">
+      </el-input>
+      <div v-if="showMinTextLengthError" class = "error"><span>{{ $t('reviews.minLengthIs20') }}</span></div>
+      <div class = "control-section">
+        <div class = "control-send-cancel">
+          <el-button @click="cancelReview()" class = "cancel-review" type="primary" plain>{{ $t('reviews.cancel') }}</el-button>
+          <el-button @click="sendReview()" :disabled='isSendDisabled' class = "send-review" type="primary" plain>{{ $t('reviews.send') }}</el-button>
+        </div>
+        <el-button class = "rules">{{ $t('reviews.rulesOfPublication') }}</el-button>
+      </div>
+    </div>
+  </el-col>
+  </el-row>
+</div>
+

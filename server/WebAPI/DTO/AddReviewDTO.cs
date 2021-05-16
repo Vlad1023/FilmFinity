@@ -1,20 +1,20 @@
-﻿using System;
+﻿using Entities.Models;
+using System;
 using System.Collections.Generic;
-using System.Text;
 using System.ComponentModel.DataAnnotations;
-namespace Entities.Models
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace WebAPI.DTO
 {
-    public class Review
+    public class AddReviewDTO
     {
-        public int Id { get; set; }
-        [Required]
-        public User User { get; set; }
         [Required]
         public int UserId { get; set; }
         [Required]
         public int FilmId { get; set; }
         [Required]
-        public ReviewContentType ContentType { get; set; }
+        public ContentType ContentType { get; set; }
         [Required]
         [MinLength(15)]
         [MaxLength(150)]
@@ -24,8 +24,6 @@ namespace Entities.Models
         [MaxLength(2000)]
         public string ReviewContent { get; set; }
         [Required]
-        public DateTime PublishTime { get; set; }
-        [Required]
         [Range(0.0, 5.0)]
         public float DirectingRating { get; set; }
         [Required]
@@ -33,15 +31,9 @@ namespace Entities.Models
         public float PlotRating { get; set; }
         [Required]
         [Range(0.0, 5.0)]
-        public float SpectacleRating { get; set; }
+        public float EntertainmentRating { get; set; }
         [Required]
-        [Range(0.0,5.0)]
+        [Range(0.0, 5.0)]
         public float ActorsRating { get; set; }
     }
-    public enum ReviewContentType
-    {
-        Serial,
-        Movie
-    }
-
 }

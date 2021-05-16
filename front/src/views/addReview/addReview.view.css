@@ -1,0 +1,136 @@
+.add-review-component-root {
+    min-width: 1300px;
+}
+
+.movie-dropdown {
+    margin-top: 8px;
+}
+
+.add-review-component-root {
+    margin: 100px;
+    width: 100%;
+    height: 100%;
+}
+
+.movie-poster {
+    width: 200px;
+}
+
+.imgDropdown {
+    width: 20px;
+    height: 20px;
+}
+
+.control-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.rules {
+    background-color: none;
+    border: none;
+}
+
+.rules >>> span {
+    color: var(--ff-primary-variant-color);
+    font-family: var(--txt-font);
+}
+
+.category-rate >>> .el-rate__icon {
+    font-size: 30px;
+}
+
+.send-review, .cancel-review {
+    background: none;
+}
+
+.send-review >>> span, .cancel-review >>> span {
+    color: var(--ff-primary-variant-color);
+    font-weight: bold;
+}
+
+.review-inputs {
+    width: 700px;
+    margin-top: 30px;
+}
+
+.rate-general >>> .el-rate__icon {
+    font-size: 40px;
+    margin-left: 60px;
+}
+
+.rate-el-wrap {
+    margin-top: 15px;
+}
+
+.rate-el-wrap span {
+    font-family: var(--txt-font);
+}
+
+.second-column div span {
+    font-family: var(--txt-font);
+}
+
+.el-input >>> .el-input__inner {
+    background-color: var(--ff-light-gray-color);
+    font-family: var(--txt-font);
+    font-size: 20px;
+}
+
+.main-review-message >>> .el-textarea__inner {
+    background-color: var(--ff-light-gray-color);
+    font-family: var(--txt-font);
+    font-size: 20px;
+}
+
+.review-inputs >>> .el-input__inner::placeholder {
+    font-family: var(--txt-font);
+    font-weight: bold;
+    color: var(--ff-black-light-color);
+}
+
+.main-review-message >>> .el-textarea__inner::placeholder {
+    font-family: var(--txt-font);
+    font-size: 15px;
+}
+
+.main-review-message {
+    margin-top: 20px;
+}
+
+.rate-general-wrap {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-self: flex-start;
+}
+
+.error {
+    font-family: var(--txt-font);
+    margin-top: 5px;
+    font-size: 15px;
+    color: red;
+}
+
+.general-mark-label {
+    margin-top: 16px;
+    font-size: 15px;
+    font-family: var(--txt-font);
+}
+
+.rate-general-wrap span {
+    font-family: var(--txt-font);
+    margin-top: 10px;
+    font-size: 25px;
+    margin-left: 20px;
+}
+
+.dropdown-img {
+    width: 20px;
+    height: 20px;
+}
+  
+.prefix {
+margin-top: 10px;
+}

@@ -41,5 +41,13 @@ namespace WebAPI.Controllers
             }
             return BadRequest(pageNumber);
         }
+
+        [HttpPost]
+        [Route("AddReview")]
+        public IActionResult AddReview(AddReviewDTO reviewObject)
+        {
+            _reviewsService.AddReview(reviewObject);
+            return Ok();
+        }
     }
 }

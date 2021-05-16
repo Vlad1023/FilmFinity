@@ -14,6 +14,9 @@
       :value="item.value">
     </el-option>
   </el-select>
+  <router-link to="/addReview">
+    <el-button class="add-review-button" type="primary">{{ $t('reviews.addReview')}}</el-button>
+  </router-link>
   </div>
     <el-button-group>
         <el-button :class="{ notactive : isRowView }" @click = "onClick" size="small" type="primary" icon="el-icon-s-grid"></el-button>

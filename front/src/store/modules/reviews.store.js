@@ -52,6 +52,22 @@ export default {
             SortOrder: state.SortOrder
           });
         });
+    },
+    addReview ({ state, commit, rootState }, reviewObj) {
+      alert(Object.values(reviewObj));
+      api.post('/Reviews/AddReview',
+        {
+          UserId: state.User.id,
+          ContentType: reviewObj.contentType,
+          FilmId: reviewObj.contentId,
+          DirectingRating: reviewObj.directingRate,
+          PlotRating: reviewObj.plotRate,
+          EntertainmentRating: reviewObj.entertainmentRate,
+          ActorsRating: reviewObj.actorsRate,
+          ReviewTitle: reviewObj.reviewHeader,
+          ReviewContent: reviewObj.reviewText
+        }
+      );
     }
   }
 };

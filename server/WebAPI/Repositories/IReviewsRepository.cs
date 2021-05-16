@@ -9,5 +9,6 @@ namespace WebAPI.Repositories
     public interface IReviewsRepository : IRepository<Review>
     {
         IQueryable<Review> GetAllReviews(int UserId);
+        void AddReview(Review review);
     }
 }

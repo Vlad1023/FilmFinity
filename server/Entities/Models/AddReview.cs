@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.ComponentModel.DataAnnotations;
+using System.Text;
+
 namespace Entities.Models
 {
-    public class Review
+    public class AddReview
     {
-        public int Id { get; set; }
-        [Required]
-        public User User { get; set; }
         [Required]
         public int UserId { get; set; }
         [Required]
@@ -23,7 +21,6 @@ namespace Entities.Models
         [MinLength(20)]
         [MaxLength(2000)]
         public string ReviewContent { get; set; }
-        [Required]
         public DateTime PublishTime { get; set; }
         [Required]
         [Range(0.0, 5.0)]
@@ -35,13 +32,8 @@ namespace Entities.Models
         [Range(0.0, 5.0)]
         public float SpectacleRating { get; set; }
         [Required]
-        [Range(0.0,5.0)]
+        [Range(0.0, 5.0)]
         public float ActorsRating { get; set; }
     }
-    public enum ReviewContentType
-    {
-        Serial,
-        Movie
-    }
-
 }
+

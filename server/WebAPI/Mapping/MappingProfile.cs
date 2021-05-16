@@ -86,6 +86,31 @@ namespace WebAPI.Mapping
                       x => x.MapFrom(list => list.ActorsList.ToList()
                       .Select(item => new MovieActorDTO { FullName = item.Actor.FullName, Id = item.ActorId }))
                 );
+
+            CreateMap<AddReviewDTO, Review>()
+                 .ForMember(x => x.UserId,
+                      x => x.MapFrom(m => m.UserId))
+                 .ForMember(x => x.FilmId,
+                      x => x.MapFrom(m => m.FilmId))
+                 .ForMember(x => x.ContentType,
+                      x => x.MapFrom(m => m.ContentType))
+                 .ForMember(x => x.ReviewTitle,
+                      x => x.MapFrom(m => m.ReviewTitle))
+                 .ForMember(x => x.ReviewContent,
+                      x => x.MapFrom(m => m.ReviewContent))
+                  .ForMember(x => x.PublishTime,
+                      x => x.MapFrom(m => DateTime.Now))
+                  .ForMember(x => x.DirectingRating,
+                      x => x.MapFrom(m => m.DirectingRating))
+                  .ForMember(x => x.PlotRating,
+                      x => x.MapFrom(m => m.PlotRating))
+                  .ForMember(x => x.SpectacleRating,
+                      x => x.MapFrom(m => m.EntertainmentRating))
+                  .ForMember(x => x.ActorsRating,
+                      x => x.MapFrom(m => m.ActorsRating))
+                  .ForMember(x => x.User,
+                      x => x.Ignore()
+            );
         }
     }
 }

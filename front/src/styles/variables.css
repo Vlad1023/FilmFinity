@@ -5,6 +5,7 @@
     --ff-light-gray-color: #F4F6FA;
     --ff-primary-variant-color:  #5956FF;
     --ff-black-color: #292C33;    
+    --ff-black-light-color: #d2d5da;
     --ff-font-color: var(--ff-black-color);
     --ff-dark-gray-color: #8F96A3;
     --ff-font-year-color: var(--ff-dark-gray-color);

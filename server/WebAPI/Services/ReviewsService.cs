@@ -13,16 +13,25 @@ namespace WebAPI.Services
     public class ReviewsService : IReviewsService
     {
         private readonly IReviewsRepository _reviewsRepository;
+        private readonly IUserRepository _userRepository;
         private readonly IMoviesService _moviesService;
         private readonly ISerialsService _serialsService;
         private readonly IMapper _mapper;
 
-        public ReviewsService(IReviewsRepository _newsRepository, IMoviesService _moviesRepository, ISerialsService _serialsRepository, IMapper _mapper)
+        public ReviewsService(IReviewsRepository _newsRepository, IMoviesService _moviesRepository, ISerialsService _serialsRepository, IUserRepository _userRepository, IMapper _mapper)
         {
             this._reviewsRepository = _newsRepository;
             this._moviesService = _moviesRepository;
             this._serialsService = _serialsRepository;
+            this._userRepository = _userRepository;
             this._mapper = _mapper;
+        }
+
+        public void AddReview(AddReviewDTO reviewObj)
+        {
+            var review = _mapper.Map<AddReviewDTO, Review>(reviewObj, opt =>
+                opt.AfterMap((src, dest) => dest.User = _userRepository.GetAllUsers().Where(x => x.Id == src.UserId).First()));
+            _reviewsRepository.AddReview(review);
         }
 
         public int? getReviewPage(int UserId, int PageNumber, int PageSize, ReviewSortState sortState, string titleName)

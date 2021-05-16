@@ -9,6 +9,10 @@
     justify-content: space-between;
 }
 
+.add-review-button {
+    margin-left: 20px;
+}
+
 .input-field {
     width: 273px;
     margin-left: 5px;

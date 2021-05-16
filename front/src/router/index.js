@@ -1,4 +1,6 @@
-import { Cartoons, FfCelebrities, Movies, News, Serials, Favorites, Reviews } from '@views';
+import {
+  Cartoons, FfCelebrities, Movies, News, Serials, Favorites, Reviews, AddReview
+} from '@views';
 import store from '@store';
 
 import Vue from 'vue';
@@ -37,6 +39,13 @@ const routes = [
   {
     path: '/reviews',
     component: Reviews,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/addReview',
+    component: AddReview,
     meta: {
       requiresAuth: true
     }

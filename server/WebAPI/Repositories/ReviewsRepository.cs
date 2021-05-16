@@ -16,6 +16,13 @@ namespace WebAPI.Repositories
          : base(context)
         { }
 
+        public void AddReview(Review review)
+        {
+            _dbContext.Reviews
+                    .Add(review);
+            _dbContext.SaveChanges();
+        }
+
         public IQueryable<Review> GetAllReviews(int UserId)
         {
             return _dbContext.Reviews

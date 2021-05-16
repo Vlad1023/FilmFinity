@@ -43,7 +43,7 @@
   },
   "authorization": {
     "signIn": "Sign in",
-    "enterLogin": "Enter login or email",
+    "enterLogin": "Enter login",
     "enterPassword": "Enter password",
     "forgetPassword": "Forget your password?",
     "firstErrorMessage": "Wow, it seems we could not find information about you",
@@ -85,6 +85,21 @@
     "value3": "Rating descending",
     "value4": "Date ascending",
     "value5": "Date ascending",
-    "value6": "Sort by"
+    "value6": "Sort by",
+    "addReview": "Add review",
+    "directing" : "Directing",
+    "yourMark" : "Your mark",
+    "plot" : "Plot",
+    "entertainment" : "Entertainment",
+    "actors" : "Actors",
+    "movie/tvShow" : "Movie/TV Show",
+    "select" : "Select",
+    "reviewName" : "Review header",
+    "yourReview" : "Your review",
+    "send" : "Send",
+    "cancel" : "Cancel",
+    "rulesOfPublication" : "Rules of publication",
+    "minLengthIs15" : "Min length of title is 15 symbols",
+    "minLengthIs20" : "Min length of review is 20 symbols"
   }
 }
