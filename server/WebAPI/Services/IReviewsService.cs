@@ -13,5 +13,6 @@ namespace WebAPI.Services
         Entities.Models.IPagedResponse<ReviewDTO> GetReviews(int UserId, int PageNumber, int PageSize, ReviewSortState sortState);
         int? getReviewPage(int UserId, int PageNumber, int PageSize, ReviewSortState sortState, string titleName);
         void AddReview(AddReviewDTO reviewObj);
+        void DeleteReview(int reviewId);
     }
 }

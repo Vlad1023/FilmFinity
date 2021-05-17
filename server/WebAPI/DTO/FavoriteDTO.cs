@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -10,6 +11,7 @@ namespace WebAPI.DTO
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public ContentType ContentType { get; set; }
         public double Rating { get; set; }
         public int Year { get; set; }
         public string PosterImageSource { get; set; }

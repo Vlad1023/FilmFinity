@@ -34,10 +34,15 @@ namespace WebAPI.Services
             _reviewsRepository.AddReview(review);
         }
 
+        public void DeleteReview(int reviewId)
+        {
+            _reviewsRepository.DeleteReview(reviewId);
+        }
+
         public int? getReviewPage(int UserId, int PageNumber, int PageSize, ReviewSortState sortState, string titleName)
         {
             if(titleName == null) return null;
-            var reviewsList = _mapper.Map<IEnumerable<Review>, IEnumerable<ReviewDTO>>(_reviewsRepository.GetAllReviews(UserId));
+            var reviewsList = _mapper.Map<IEnumerable<Review>, IEnumerable<ReviewDTO>>(_reviewsRepository.GetAllReviewsByUserId(UserId));
             reviewsList = sortQuery(reviewsList, sortState);
             var foundElement = reviewsList.FirstOrDefault(s => s.ReviewTitle.Contains(titleName));
             if (foundElement == null) return null;
@@ -49,7 +54,7 @@ namespace WebAPI.Services
 
         public Entities.Models.IPagedResponse<ReviewDTO> GetReviews(int UserId, int PageNumber, int PageSize, ReviewSortState sortState)
         {
-            var reviewsList = _mapper.Map<IEnumerable<Review>, IEnumerable<ReviewDTO>>(_reviewsRepository.GetAllReviews(UserId));
+            var reviewsList = _mapper.Map<IEnumerable<Review>, IEnumerable<ReviewDTO>>(_reviewsRepository.GetAllReviewsByUserId(UserId));
             foreach (var item in reviewsList)
             {
                 if(item.ContentType == ContentType.Movie)

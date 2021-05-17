@@ -78,6 +78,11 @@ namespace Entities.DataAccess
                 .WithMany(j => j.Reviews)
                 .HasForeignKey(cjt => cjt.UserId);
 
+            modelBuilder.Entity<Favorite>()
+                .HasOne(cj => cj.User)
+                .WithMany(j => j.Favoutites)
+                .HasForeignKey(cjt => cjt.UserId);
+
             modelBuilder
              .ApplyConfiguration(new NewsConfiguration());
 

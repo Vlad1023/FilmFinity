@@ -6,7 +6,8 @@ export default {
     token: localStorage.getItem('token') || '',
     user: JSON.parse(localStorage.getItem('user')) || '',
     isLoginVisible: false,
-    isConfirmationVisible: false
+    isConfirmationVisible: false,
+    userInfo: {}
   }),
   getters: {
     isLoggedIn: state => !!state.token,
@@ -15,6 +16,9 @@ export default {
   mutations: {
     auth_request (state) {
       state.status = 'loading';
+    },
+    update_userInfo (state, userInfoObj) {
+      state.userInfo = userInfoObj;
     },
     auth_success (state, obj) {
       state.status = 'success';
@@ -59,6 +63,14 @@ export default {
             reject(err);
           });
       });
+    },
+    getUserInfo ({ state, commit, rootState }) {
+      api
+        .get(`/User/GetUserInfo/${state.user.id}`)
+        .then(response => {
+          console.log(response.data);
+          commit('update_userInfo', response.data);
+        });
     },
     logout ({ commit }) {
       return new Promise((resolve, reject) => {

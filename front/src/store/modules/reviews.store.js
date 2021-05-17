@@ -22,6 +22,11 @@ export default {
     },
     decrementCurrentPage (state) {
       state.PageNumber--;
+    },
+    removeReview (state, reviewObj) {
+      const index = state.reviews.data.indexOf(reviewObj);
+      console.log(index);
+      state.reviews.data.splice(index, 1);
     }
   },
   actions: {
@@ -54,7 +59,7 @@ export default {
         });
     },
     addReview ({ state, commit, rootState }, reviewObj) {
-      alert(Object.values(reviewObj));
+      console.log(reviewObj);
       api.post('/Reviews/AddReview',
         {
           UserId: state.User.id,
@@ -68,6 +73,9 @@ export default {
           ReviewContent: reviewObj.reviewText
         }
       );
+    },
+    deleteReview ({ state, commit, rootState }, reviewId) {
+      api.delete('/Reviews/DeleteReview', { params: { reviewId: reviewId } });
     }
   }
 };

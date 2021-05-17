@@ -21,6 +21,13 @@
     display: flex;
 }
 
+.el-icon-delete {
+    color: red;
+    font-size: 20px;
+    margin-left: 150px;
+    margin-bottom: 20px;
+}
+
 .el-col:first-of-type {
     display: flex;
     justify-content: space-between;

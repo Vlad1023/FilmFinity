@@ -32,16 +32,16 @@ namespace WebAPI.DTO
         [Required]
         public DateTime PublishTime { get; set; }
         [Required]
-        [Range(0.0, 5.0)]
+        [Range(0.0, 6.0)]
         public float DirectingRating { get; set; }
         [Required]
-        [Range(0.0, 5.0)]
+        [Range(0.0, 6.0)]
         public float PlotRating { get; set; } 
         [Required]
-        [Range(0.0, 5.0)]
+        [Range(0.0, 6.0)]
         public float SpectacleRating { get; set; }
         [Required]
-        [Range(0.0, 5.0)]
+        [Range(0.0, 6.0)]
         public float ActorsRating { get; set; }
     }
 }

@@ -23,6 +23,23 @@ export default {
         PageSize: 2,
         TitleName: substring
       });
+    },
+    DeleteIconClicked (item, current) {
+      const self = this;
+      this.$swal({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then(function (res) {
+        if (res.isConfirmed) {
+          self.$store.dispatch('deleteReview', item.id);
+          self.$store.commit('removeReview', item);
+        }
+      });
     }
   },
   name: 'ff-review'

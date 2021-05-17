@@ -3,16 +3,19 @@ import './element-variables.scss';
 import App from './App.vue';
 import ElementUI from 'element-ui';
 import Vue from 'vue';
+import VueSweetalert2 from 'vue-sweetalert2';
 import i18n from './plugins/i18n';
 import router from '@router';
 import store from '@store';
 import api from '@apiService';
 import filters from '@filters';
 import Meta from 'vue-meta';
+import 'sweetalert2/dist/sweetalert2.min.css';
 Vue.use(Meta);
 
 Vue.use(ElementUI);
 Vue.use(filters);
+Vue.use(VueSweetalert2);
 
 Vue.config.productionTip = false;
 

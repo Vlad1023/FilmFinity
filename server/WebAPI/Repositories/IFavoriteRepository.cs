@@ -10,5 +10,7 @@ namespace WebAPI.Repositories
     public interface IFavoriteRepository : IRepository<FavoriteDTO>
     {
         List<Favorite> GetAllFavorites();
+        List<Favorite> GetAllFavouritesOfByUserId(int userId);
+        void AddFavourite(Favorite favouriteObj);
     }
 }

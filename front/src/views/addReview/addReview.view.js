@@ -28,7 +28,7 @@ export default {
             }),
             serialsMapped = tvShows.map(function (serialObj) {
               return {
-                contentId: serialObj.contentId,
+                contentId: serialObj.id,
                 label: serialObj.name,
                 imageSource: serialObj.posterImageSource,
                 contentType: 0
@@ -72,6 +72,8 @@ export default {
         reviewText: this.reviewText
       };
       this.$store.dispatch('addReview', review);
+      this.$store.dispatch('getUserInfo');
+      this.cancelReview();
     }
   },
   name: 'ff-addreview'

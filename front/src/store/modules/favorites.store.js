@@ -3,8 +3,8 @@ export default {
   state: () => ({
     favorites: [],
     totalCount: null,
-    pageSize: null
-
+    pageSize: null,
+    User: JSON.parse(localStorage.getItem('user'))
   }),
   getters: {},
   mutations: {
@@ -21,11 +21,20 @@ export default {
   actions: {
     async getFavorites ({ state, commit, rootState }, request) {
       await api
-        .get(`/Favorite/${request.currentPage}/${request.sortState}`)
+        .get(`/Favorite/${state.User.id}/${request.currentPage}/${request.sortState}`)
         .then(response => {
           commit('updateFavorites', response.data.data);
           commit('updateTotalCount', response.data.totalCount);
           commit('updatePageSize', response.data.pageSize);
+        });
+    },
+    addFavourite ({ state, commit, rootState }, favouriteObj) {
+      console.log(favouriteObj);
+      api.post('/Favorite/AddFavourite',
+        {
+          UserId: state.User.id,
+          ContentType: favouriteObj.contentType,
+          ContentId: favouriteObj.contentId
         });
     }
   }

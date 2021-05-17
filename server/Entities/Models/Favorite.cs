@@ -14,11 +14,14 @@ namespace Entities.Models
     public class Favorite
     {
         public int Id { get; set; }
+        public User User { get; set; }
         [Required]
         [Range(0, 1)]
         public ContentType ContentType { get; set; }        
         [Required]
         public int ContentId { get; set; }
+        [Required]
+        public int UserId { get; set; }
         [Required]
         public DateTime AddedTime { get; set; }
     }

@@ -20,6 +20,8 @@ namespace Entities.Models
         public string UserPassword { get; set; }
         [JsonIgnore]
         public ICollection<Review> Reviews { get; set; }
+        [JsonIgnore]
+        public ICollection<Favorite> Favoutites { get; set; }
 
     }
 }

@@ -14,6 +14,9 @@ export default {
       user: this.$store.state.auth.user
     };
   },
+  created: function () {
+    this.$store.dispatch('getUserInfo');
+  },
   methods: {
     handleOpen (key, keyPath) {
       console.log(key, keyPath);
@@ -32,6 +35,14 @@ export default {
     },
     pushtoReviews () {
       this.$router.push('/reviews');
+    }
+  },
+  computed: {
+    getMeanMark () {
+      return this.$store.state.auth.userInfo.meanMark;
+    },
+    getCountOfFavourites () {
+      return this.$store.state.auth.userInfo.countOfFavourites;
     }
   }
 };

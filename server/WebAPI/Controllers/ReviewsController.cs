@@ -49,5 +49,13 @@ namespace WebAPI.Controllers
             _reviewsService.AddReview(reviewObject);
             return Ok();
         }
+
+        [HttpDelete]
+        [Route("DeleteReview")]
+        public IActionResult DeleteReview(int reviewId)
+        {
+            _reviewsService.DeleteReview(reviewId);
+            return Ok();
+        }
     }
 }

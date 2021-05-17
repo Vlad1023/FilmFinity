@@ -18,12 +18,16 @@ namespace WebAPI.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository userRepository;
+        private readonly IFavoriteRepository _favoriteRepository;
+        private readonly IReviewsRepository _reviewRepository;
         private readonly IMapper mapper;
         private readonly AppSettings _appSettings;
 
-        public UserService(IUserRepository userRepository, IMapper mapper, IOptions<AppSettings> appSettings)
+        public UserService(IUserRepository userRepository, IReviewsRepository _reviewRepository, IFavoriteRepository _favouriteRepository, IMapper mapper, IOptions<AppSettings> appSettings)
         {
             this.userRepository = userRepository;
+            this._favoriteRepository = _favouriteRepository;
+            this._reviewRepository = _reviewRepository;
             this.mapper = mapper;
             _appSettings = appSettings.Value;
         }
@@ -69,6 +73,21 @@ namespace WebAPI.Services
         {
             User user = mapper.Map<UserDTO, User>(userDTO);
             userRepository.Create(user);
+        }
+
+
+        public UserInfoDTO GetUserInfo(int userId)
+        {
+            var userFavourites = _favoriteRepository.GetAllFavouritesOfByUserId(userId);
+            var userReviews = _reviewRepository.GetAllReviewsByUserId(userId);
+            var userReviewsCount = userReviews.Count();
+            double meanValue = 0;
+            foreach (var item in userReviews)
+            {
+                meanValue += (item.ActorsRating + item.DirectingRating + item.PlotRating + item.SpectacleRating) / 4 / userReviewsCount;
+            }
+            var meanValueInt = (int)meanValue;
+            return new UserInfoDTO { countOfFavourites = userFavourites.Count, meanMark = meanValueInt };
         }
     }
 }

@@ -53,5 +53,13 @@ namespace WebAPI.Controllers
 
             return Ok(response);
         }
+
+
+        [HttpGet("GetUserInfo/{userId}")]
+        public ActionResult<UserInfoDTO> GetUserInfo(int userId)
+        {
+            var userInfo = _userService.GetUserInfo(userId);
+            return Ok(userInfo);
+        }
     }
 }

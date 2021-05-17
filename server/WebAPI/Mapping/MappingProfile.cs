@@ -36,10 +36,10 @@ namespace WebAPI.Mapping
                 .ForMember(x => x.Celebrities,
                      x => x.MapFrom(list => list.SerialCelebrity.ToList()
                      .Select(item => new MovieActorDTO
-                        {
-                            Id = item.Celebrity.CelebrityId,
-                            FullName = item.Celebrity.FirstName + " " + item.Celebrity.LastName
-                        })
+                     {
+                         Id = item.Celebrity.CelebrityId,
+                         FullName = item.Celebrity.FirstName + " " + item.Celebrity.LastName
+                     })
                     )
                 );
             CreateMap<Movie, FavoriteDTO>()
@@ -82,7 +82,7 @@ namespace WebAPI.Mapping
                       x => x.MapFrom(m => m.ReleaseYear))
                  .ForMember(x => x.PosterImageSource,
                       x => x.MapFrom(m => m.ImageSource))
-                 .ForMember(x => x.Celebrities, 
+                 .ForMember(x => x.Celebrities,
                       x => x.MapFrom(list => list.ActorsList.ToList()
                       .Select(item => new MovieActorDTO { FullName = item.Actor.FullName, Id = item.ActorId }))
                 );
@@ -109,8 +109,17 @@ namespace WebAPI.Mapping
                   .ForMember(x => x.ActorsRating,
                       x => x.MapFrom(m => m.ActorsRating))
                   .ForMember(x => x.User,
-                      x => x.Ignore()
-            );
+                      x => x.Ignore());
+
+            CreateMap<AddFavouriteDTO, Favorite>()
+               .ForMember(x => x.UserId,
+                    x => x.MapFrom(m => m.UserId))
+               .ForMember(x => x.ContentId,
+                    x => x.MapFrom(m => m.ContentId))
+               .ForMember(x => x.ContentType,
+                    x => x.MapFrom(m => m.ContentType))
+                .ForMember(x => x.AddedTime,
+                    x => x.MapFrom(m => DateTime.Now));
         }
     }
 }

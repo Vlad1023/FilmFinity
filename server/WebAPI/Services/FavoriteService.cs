@@ -24,14 +24,25 @@ namespace WebAPI.Services
             this._movieRepository = _movieRepository;
             this.mapper = mapper;
         }
-        public WebAPI.DTO.IPagedResponse<FavoriteDTO> GetFavorites(int page, SortState sortOrder)
+
+        public void AddFavourite(AddFavouriteDTO favoriteDTO)
+        {
+            favoriteRepository.AddFavourite(
+                mapper.Map<AddFavouriteDTO, Favorite>(favoriteDTO));
+        }
+
+        public WebAPI.DTO.IPagedResponse<FavoriteDTO> GetFavorites(int userId, int page, SortState sortOrder)
         {
             int pageSize = 8;
-            var favorites = favoriteRepository.GetAllFavorites();
+            var favorites = favoriteRepository.GetAllFavouritesOfByUserId(userId);
             var count = favorites.Count();
             var pageNumber = (int)Math.Ceiling(count / (double)pageSize);
             var favoriteSerial = mapper.Map<IEnumerable<FavoriteDTO>>(favorites.Where(s => s.ContentType == ContentType.Serial).Select(i => (_serialRepository.GetSerialById(i.ContentId))));
             var favoriteMovie = mapper.Map<IEnumerable<FavoriteDTO>>(favorites.Where(s => s.ContentType == ContentType.Movie).Select(i => (_movieRepository.GetMovieById(i.ContentId))));
+            foreach (var item in favoriteMovie)
+            {
+                item.ContentType = ContentType.Movie;
+            }
             IEnumerable<FavoriteDTO> union = favoriteSerial.Union(favoriteMovie);
             union = sortOrder switch
             {

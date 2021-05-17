@@ -12,6 +12,7 @@ namespace WebAPI.Services
         IEnumerable<UserDTO> GetUsers();
         bool isEmailInUse(string email);
         void CreateUser(UserDTO userDTO);
+        UserInfoDTO GetUserInfo(int userId);
         AuthenticateResponse Authenticate(AuthenticateRequest model);
     }
 }

@@ -23,7 +23,15 @@ namespace WebAPI.Repositories
             _dbContext.SaveChanges();
         }
 
-        public IQueryable<Review> GetAllReviews(int UserId)
+        public void DeleteReview(int reviewId)
+        {
+           var toRemove = _dbContext.Reviews.Where(x => x.Id == reviewId).First();
+            _dbContext.Reviews
+                .Remove(toRemove);
+            _dbContext.SaveChanges();
+        }
+
+        public IQueryable<Review> GetAllReviewsByUserId(int UserId)
         {
             return _dbContext.Reviews
                 .Where(r => r.UserId == UserId);

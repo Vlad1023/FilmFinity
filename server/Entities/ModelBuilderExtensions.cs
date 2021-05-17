@@ -679,6 +679,7 @@ namespace Entities
         new Favorite
         {
             Id = 1,
+            UserId = 1,
             ContentType = ContentType.Movie,
             ContentId = 1,
             AddedTime = DateTime.Now
@@ -686,6 +687,7 @@ namespace Entities
         new Favorite
         {
             Id = 2,
+            UserId = 1,
             ContentType = ContentType.Movie,
             ContentId = 2,
             AddedTime = DateTime.Now
@@ -693,6 +695,7 @@ namespace Entities
         new Favorite
         {
             Id = 3,
+            UserId = 1,
             ContentType = ContentType.Movie,
             ContentId = 3,
             AddedTime = DateTime.Now
@@ -700,6 +703,7 @@ namespace Entities
         new Favorite
         {
             Id = 4,
+            UserId = 1,
             ContentType = ContentType.Serial,
             ContentId = 1,
             AddedTime = new DateTime(2019, 1, 18)
@@ -707,6 +711,7 @@ namespace Entities
         new Favorite
         {
             Id = 5,
+            UserId = 1,
             ContentType = ContentType.Serial,
             ContentId = 2,
             AddedTime = new DateTime(2018, 3, 11),

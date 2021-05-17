@@ -8,6 +8,11 @@
     max-width: 1470px;
     margin: 0 auto;
 }
+
+.add-to-favourite-btn {
+    width: 100%;
+    margin-top: 10px;
+}
   
 .grid-col-wrap {
     margin-top: 20px;

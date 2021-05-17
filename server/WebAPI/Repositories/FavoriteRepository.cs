@@ -16,9 +16,20 @@ namespace WebAPI.Repositories
             : base(context)
         { }
 
+        public void AddFavourite(Favorite favouriteObj)
+        {
+            _dbContext.Favorites.Add(favouriteObj);
+            _dbContext.SaveChanges();
+        }
+
         public List<Favorite> GetAllFavorites()
         {
             return _dbContext.Favorites.ToList();
+        }
+
+        public List<Favorite> GetAllFavouritesOfByUserId(int userId)
+        {
+            return _dbContext.Favorites.Where(x => x.UserId == userId).ToList();
         }
     }
 }

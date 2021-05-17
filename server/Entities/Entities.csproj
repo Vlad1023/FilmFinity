@@ -23,6 +23,8 @@
     <Compile Remove="Migrations\20200701201638_addFavoritesValidation.Designer.cs" />
     <Compile Remove="Migrations\20200701204231_addFavoritesValidation.cs" />
     <Compile Remove="Migrations\20200701204231_addFavoritesValidation.Designer.cs" />
+    <Compile Remove="Migrations\20210516222514_connectedFavouritesAndUsers.cs" />
+    <Compile Remove="Migrations\20210516222514_connectedFavouritesAndUsers.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

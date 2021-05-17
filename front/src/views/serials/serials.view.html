@@ -20,6 +20,7 @@
             <div class="celebrities-list">              
               <span>{{serial.celebrities | fullName | listStringify}}</span>
             </div>
+            <el-button @click="addFavouriteClicked(serial)" v-if="isAddToFavouriteShown(serial)" class="add-to-favourite-btn" type="primary">{{ $t('favorite.addToFavouriteButton') }}</el-button>
         </div>
       </div>
     </div>

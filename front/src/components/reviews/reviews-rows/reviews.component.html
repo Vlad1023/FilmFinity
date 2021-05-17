@@ -25,6 +25,7 @@
                 </div>
             </el-col>
             <el-col class = "rate-col" :span="5">
+                <i @click="DeleteIconClicked(reviewItem)"  class="el-icon-delete"></i>
                 <div class = "publish-date">
                     <span> {{reviewItem.publishTime | convertDateTime('dd.MM.yyyy')}}</span>
                 </div>

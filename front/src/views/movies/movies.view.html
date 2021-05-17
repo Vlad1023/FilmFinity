@@ -19,6 +19,7 @@
               <span>{{movie.actorsList[0].fullName}}, </span>
               <span>{{movie.actorsList | withoutFirstElement | mapByProperty("fullName") | listStringify}}</span>
             </div>
+            <el-button @click="addFavouriteClicked(movie)" v-if="isAddToFavouriteShown(movie)" class="add-to-favourite-btn" type="primary">{{ $t('favorite.addToFavouriteButton') }}</el-button>
           </div>
         </el-card>
       </div>
