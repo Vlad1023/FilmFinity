@@ -38,11 +38,8 @@ export default {
     }
   },
   computed: {
-    getMeanMark () {
-      return this.$store.state.auth.userInfo.meanMark;
-    },
-    getCountOfFavourites () {
-      return this.$store.state.auth.userInfo.countOfFavourites;
+    getUserInfo () {
+      return this.$store.state.auth.userInfo;
     }
   }
 };

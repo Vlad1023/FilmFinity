@@ -22,6 +22,22 @@ namespace WebAPI.Repositories
             _dbContext.SaveChanges();
         }
 
+        public void DeleteFavouriteMovie(int movieId)
+        {
+            var toRemove = _dbContext.Favorites.Where(x => x.ContentType == ContentType.Movie && x.ContentId == movieId).First();
+            _dbContext.Favorites
+                .Remove(toRemove);
+            _dbContext.SaveChanges();
+        }
+
+        public void DeleteFavouriteSerial(int serialId)
+        {
+            var toRemove = _dbContext.Favorites.Where(x => x.ContentType == ContentType.Serial && x.ContentId == serialId).First();
+            _dbContext.Favorites
+                .Remove(toRemove);
+            _dbContext.SaveChanges();
+        }
+
         public List<Favorite> GetAllFavorites()
         {
             return _dbContext.Favorites.ToList();

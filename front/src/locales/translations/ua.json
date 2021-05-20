@@ -77,7 +77,8 @@
     "value4": "Рік по зростанню",
     "value5": "Рік по зменшенню",
     "value6": "Сортувати за",
-    "addToFavouriteButton": "Додати в вибране"
+    "addToFavouriteButton": "Додати в вибране",
+    "removeFromFavouriteButton": "Видалити з вибраного"
   },
   "reviews":{
     "value0": "Назва від А до Я",

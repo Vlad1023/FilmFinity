@@ -1,7 +1,8 @@
-import axios from 'axios';
+import api from '@apiService';
 export default {
   state: {
-    movies: []
+    movies: [],
+    User: JSON.parse(localStorage.getItem('user'))
   },
   mutations: {
     initMovies (state, serverData) {
@@ -9,9 +10,9 @@ export default {
     }
   },
   actions: {
-    getMovies ({ commit, rootState }) {
-      axios
-        .get(`${rootState.baseUrl}/api/movies`)
+    getMovies ({ state, commit, rootState }) {
+      api
+        .get('/Movies')
         .then(response => { commit('initMovies', response.data); });
     }
   }

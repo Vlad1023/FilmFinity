@@ -77,7 +77,8 @@
     "value4": "Year of growth",
     "value5": "Year of decline",
     "value6": "Sort by",
-    "addToFavouriteButton": "Add to favourite"
+    "addToFavouriteButton": "Add to favourite",
+    "removeFromFavouriteButton": "Remove from favourite"
   },
   "reviews":{
     "value0": "Name A to Z",

@@ -58,7 +58,7 @@ export default {
           });
         });
     },
-    addReview ({ state, commit, rootState }, reviewObj) {
+    addReview ({ state, commit, dispatch, rootState }, reviewObj) {
       console.log(reviewObj);
       api.post('/Reviews/AddReview',
         {
@@ -72,10 +72,15 @@ export default {
           ReviewTitle: reviewObj.reviewHeader,
           ReviewContent: reviewObj.reviewText
         }
-      );
+      ).then(response => {
+        dispatch('getUserInfo');
+      });
     },
-    deleteReview ({ state, commit, rootState }, reviewId) {
-      api.delete('/Reviews/DeleteReview', { params: { reviewId: reviewId } });
+    deleteReview ({ state, commit, dispatch, rootState }, reviewId) {
+      api.delete('/Reviews/DeleteReview', { params: { reviewId: reviewId } })
+        .then(response => {
+          dispatch('getUserInfo');
+        });
     }
   }
 };

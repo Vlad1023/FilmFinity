@@ -22,10 +22,10 @@ namespace WebAPI.Controllers
             this.favoriteService = favoriteService;
         }
 
-        [HttpGet("{userId}/{page}/{sortOrder}")]
-        public ActionResult<IPagedResponse<FavoriteDTO>> GetListFavorites(int userId, int page = 1, SortState sortOrder = SortState.NameAsc)
+        [HttpGet("{userId}/{page}/{sortOrder}/{isPageRequestNeeded}")]
+        public ActionResult<IPagedResponse<FavoriteDTO>> GetListFavorites(int userId, int page = 1, SortState sortOrder = SortState.NameAsc, bool isPageRequestNeeded=true)
         {
-            IPagedResponse<FavoriteDTO> objectList = favoriteService.GetFavorites(userId, page, sortOrder);
+            IPagedResponse<FavoriteDTO> objectList = favoriteService.GetFavorites(userId, page, sortOrder, isPageRequestNeeded);
             return Ok(objectList);
         }
 
@@ -34,6 +34,23 @@ namespace WebAPI.Controllers
         public IActionResult AddFavourite(AddFavouriteDTO addFavouriteObj)
         {
             favoriteService.AddFavourite(addFavouriteObj);
+            return Ok();
+        }
+
+
+        [HttpDelete]
+        [Route("DeleteFavouriteMovie")]
+        public IActionResult DeleteFavouriteMovie(int movieId)
+        {
+            favoriteService.DeleteFavouriteMovie(movieId);
+            return Ok();
+        }
+
+        [HttpDelete]
+        [Route("DeleteFavouriteSerial")]
+        public IActionResult DeleteFavouriteSerial(int serialId)
+        {
+            favoriteService.DeleteFavouriteSerial(serialId);
             return Ok();
         }
     }

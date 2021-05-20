@@ -8,7 +8,9 @@ namespace WebAPI.Services
 {
     public interface IFavoriteService
     {
-        IPagedResponse<FavoriteDTO> GetFavorites(int userId, int page, SortState sortOrder);
+        IPagedResponse<FavoriteDTO> GetFavorites(int userId, int page, SortState sortOrder, bool isPagedRequestNeeded);
         void AddFavourite(AddFavouriteDTO favoriteDTO);
+        void DeleteFavouriteMovie(int movieId);
+        void DeleteFavouriteSerial(int serialId);
     }
 }

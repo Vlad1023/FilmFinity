@@ -31,7 +31,17 @@ namespace WebAPI.Services
                 mapper.Map<AddFavouriteDTO, Favorite>(favoriteDTO));
         }
 
-        public WebAPI.DTO.IPagedResponse<FavoriteDTO> GetFavorites(int userId, int page, SortState sortOrder)
+        public void DeleteFavouriteMovie(int movieId)
+        {
+            favoriteRepository.DeleteFavouriteMovie(movieId);
+        }
+
+        public void DeleteFavouriteSerial(int serialId)
+        {
+            favoriteRepository.DeleteFavouriteSerial(serialId);
+        }
+
+        public WebAPI.DTO.IPagedResponse<FavoriteDTO> GetFavorites(int userId, int page, SortState sortOrder, bool isPagedRequestNeeded)
         {
             int pageSize = 8;
             var favorites = favoriteRepository.GetAllFavouritesOfByUserId(userId);
@@ -53,7 +63,11 @@ namespace WebAPI.Services
                 SortState.YearDesc => union.OrderByDescending(s => s.Year),
                 _ => union.OrderBy(s => s.Name),
             };
-            var items = union.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+            List<FavoriteDTO> items;
+            if (isPagedRequestNeeded)
+                items = union.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+            else
+                items = union.ToList();
 
             WebAPI.DTO.IPagedResponse<FavoriteDTO> pagedResponse = new WebAPI.DTO.IPagedResponse<FavoriteDTO>
             {

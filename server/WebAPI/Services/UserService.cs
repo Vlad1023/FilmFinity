@@ -84,9 +84,9 @@ namespace WebAPI.Services
             double meanValue = 0;
             foreach (var item in userReviews)
             {
-                meanValue += (item.ActorsRating + item.DirectingRating + item.PlotRating + item.SpectacleRating) / 4 / userReviewsCount;
+                meanValue += (item.ActorsRating + item.DirectingRating + item.PlotRating + item.SpectacleRating) / 4 ;
             }
-            var meanValueInt = (int)meanValue;
+            var meanValueInt = (int)meanValue / userReviewsCount;
             return new UserInfoDTO { countOfFavourites = userFavourites.Count, meanMark = meanValueInt };
         }
     }

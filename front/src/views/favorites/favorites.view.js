@@ -53,7 +53,8 @@ export default {
   created () {
     this.$store.dispatch('getFavorites', {
       currentPage: this.currentPage,
-      sortState: this.sortState
+      sortState: this.sortState,
+      isPageRequestNeeded: true
     });
   },
   methods: {
@@ -61,14 +62,16 @@ export default {
       this.currentPage = val;
       this.$store.dispatch('getFavorites', {
         currentPage: this.currentPage,
-        sortState: this.sortState
+        sortState: this.sortState,
+        isPageRequestNeeded: true
       });
     },
     sortingContent (val) {
       this.sortState = val;
       this.$store.dispatch('getFavorites', {
         currentPage: this.currentPage,
-        sortState: this.sortState
+        sortState: this.sortState,
+        isPageRequestNeeded: true
       });
     }
   }

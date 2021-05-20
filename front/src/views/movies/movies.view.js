@@ -21,16 +21,26 @@ export default {
         return item.id === movie.id && item.contentType === 1;
       });
       console.log(alreadyExistingFavouriteItem);
-      return this.$store.getters.isLoggedIn
-        && alreadyExistingFavouriteItem.length === 0;
+      return alreadyExistingFavouriteItem.length === 0;
+    },
+    removeFavouriteClicked (movie) {
+      this.$store.dispatch('deleteFavouriteMovie', movie.id);
     }
   },
   computed: {
     getMoviesList () {
       return this.$store.state.movies.movies;
+    },
+    isLoggedIn () {
+      return this.$store.getters.isLoggedIn;
     }
   },
   created () {
     this.$store.dispatch('getMovies');
+    this.$store.dispatch('getFavorites', {
+      currentPage: 0,
+      sortState: 0,
+      isPageRequestNeeded: false
+    }, false);
   }
 };

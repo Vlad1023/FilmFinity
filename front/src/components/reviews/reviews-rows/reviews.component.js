@@ -24,7 +24,7 @@ export default {
         TitleName: substring
       });
     },
-    DeleteIconClicked (item, current) {
+    DeleteIconClicked (item) {
       const self = this;
       this.$swal({
         title: 'Are you sure?',

@@ -77,7 +77,8 @@
     "value4": "Год по возрастанию",
     "value5": "Год по возрастанию",
     "value6": "Сортировать по",
-    "addToFavouriteButton": "Добавить в избранное"
+    "addToFavouriteButton": "Добавить в избранное",
+    "removeFromFavouriteButton": "Удалить из избранного"
   },
   "reviews":{
     "value0": "Название от А до Я",

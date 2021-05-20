@@ -8,6 +8,11 @@
     max-width: 1180px;
     margin: 0 auto;
 }
+
+.el-icon-delete {
+    color: red;
+ 
+}
   
 .grid-col-wrap {
     margin-top: 20px;

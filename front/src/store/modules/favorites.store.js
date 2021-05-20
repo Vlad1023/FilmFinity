@@ -20,21 +20,61 @@ export default {
   },
   actions: {
     async getFavorites ({ state, commit, rootState }, request) {
-      await api
-        .get(`/Favorite/${state.User.id}/${request.currentPage}/${request.sortState}`)
-        .then(response => {
-          commit('updateFavorites', response.data.data);
-          commit('updateTotalCount', response.data.totalCount);
-          commit('updatePageSize', response.data.pageSize);
-        });
+      if (request.isPageRequestNeeded) {
+        await api
+          .get(`/Favorite/${state.User.id}/${request.currentPage}/${request.sortState}
+          /${true}`)
+          .then(response => {
+            commit('updateFavorites', response.data.data);
+            commit('updateTotalCount', response.data.totalCount);
+            commit('updatePageSize', response.data.pageSize);
+          });
+      } else {
+        await api
+          .get(`/Favorite/${state.User.id}/${0}/${1}
+          /${false}`)
+          .then(response => {
+            commit('updateFavorites', response.data.data);
+          });
+      }
     },
-    addFavourite ({ state, commit, rootState }, favouriteObj) {
+    addFavourite ({ state, dispatch, commit, rootState }, favouriteObj) {
       console.log(favouriteObj);
       api.post('/Favorite/AddFavourite',
         {
           UserId: state.User.id,
           ContentType: favouriteObj.contentType,
           ContentId: favouriteObj.contentId
+        })
+        .then(response => {
+          dispatch('getFavorites', {
+            currentPage: 0,
+            sortState: 0,
+            isPageRequestNeeded: false
+          }, false);
+          dispatch('getUserInfo');
+        });
+    },
+    deleteFavouriteMovie ({ state, dispatch, commit, rootState }, movieId) {
+      api.delete('/Favorite/DeleteFavouriteMovie', { params: { movieId: movieId } })
+        .then(response => {
+          dispatch('getFavorites', {
+            currentPage: 0,
+            sortState: 0,
+            isPageRequestNeeded: false
+          }, false);
+          dispatch('getUserInfo');
+        });
+    },
+    deleteFavouriteSerial ({ state, dispatch, commit, rootState }, serialId) {
+      api.delete('/Favorite/DeleteFavouriteSerial', { params: { serialId: serialId } })
+        .then(response => {
+          dispatch('getFavorites', {
+            currentPage: 0,
+            sortState: 0,
+            isPageRequestNeeded: false
+          }, false);
+          dispatch('getUserInfo');
         });
     }
   }

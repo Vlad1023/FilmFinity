@@ -22,6 +22,10 @@
     width: 270px;
 }
 
+.delete-from-favourite-btn {
+    background-color: var(--ff-dark-gray-color);
+  }
+
 .grid-content-wrap {
     box-shadow: 0px 2px 7px rgba(0, 0, 0, 0.15);
     border-radius: 5px;

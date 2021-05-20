@@ -20,7 +20,8 @@
             <div class="celebrities-list">              
               <span>{{serial.celebrities | fullName | listStringify}}</span>
             </div>
-            <el-button @click="addFavouriteClicked(serial)" v-if="isAddToFavouriteShown(serial)" class="add-to-favourite-btn" type="primary">{{ $t('favorite.addToFavouriteButton') }}</el-button>
+            <el-button @click="addFavouriteClicked(serial)" v-if="isAddToFavouriteShown(serial) && isLoggedIn" class="add-to-favourite-btn" type="primary">{{ $t('favorite.addToFavouriteButton') }}</el-button>
+            <el-button @click="removeFavouriteClicked(serial)" v-else-if="isLoggedIn" class="add-to-favourite-btn delete-from-favourite-btn" type="primary">{{ $t('favorite.removeFromFavouriteButton') }}</el-button>
         </div>
       </div>
     </div>

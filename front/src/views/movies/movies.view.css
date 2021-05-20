@@ -14,6 +14,10 @@
   margin-top: 10px;
 }
 
+.delete-from-favourite-btn {
+  background-color: var(--ff-dark-gray-color);
+}
+
 .el-row-wrap,
 .grid-content-wrap {
   flex-flow: row wrap;

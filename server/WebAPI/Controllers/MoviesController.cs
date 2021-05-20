@@ -22,7 +22,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]        
-        public IActionResult GetListMovies()
+        public IActionResult GetListMovies(int userId)
         {
             var objectList = _moviesService.GetAllMovies();
             return Ok(objectList);

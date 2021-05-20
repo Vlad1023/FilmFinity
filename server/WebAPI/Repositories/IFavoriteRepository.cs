@@ -12,5 +12,7 @@ namespace WebAPI.Repositories
         List<Favorite> GetAllFavorites();
         List<Favorite> GetAllFavouritesOfByUserId(int userId);
         void AddFavourite(Favorite favouriteObj);
+        void DeleteFavouriteMovie(int movieId);
+        void DeleteFavouriteSerial(int serialId);
     }
 }

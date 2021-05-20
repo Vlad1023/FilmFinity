@@ -72,7 +72,6 @@ export default {
         reviewText: this.reviewText
       };
       this.$store.dispatch('addReview', review);
-      this.$store.dispatch('getUserInfo');
       this.cancelReview();
     }
   },

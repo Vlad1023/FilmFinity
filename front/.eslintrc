@@ -60,7 +60,6 @@
           "singleValue": true
         }
       ],
-      "curly": ["error", "all"],
       "indent": ["error", 2, {
         "SwitchCase": 1,
         "VariableDeclarator": "first",

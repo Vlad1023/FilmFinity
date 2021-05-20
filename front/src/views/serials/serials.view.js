@@ -4,6 +4,9 @@ export default {
   computed: {
     getSerialsList () {
       return this.$store.state.serials.serials;
+    },
+    isLoggedIn () {
+      return this.$store.getters.isLoggedIn;
     }
   },
   created () {
@@ -24,6 +27,9 @@ export default {
       console.log(alreadyExistingFavouriteItem.length);
       return this.$store.getters.isLoggedIn
         && alreadyExistingFavouriteItem.length === 0;
+    },
+    removeFavouriteClicked (serial) {
+      this.$store.dispatch('deleteFavouriteSerial', serial.id);
     }
   }
 };
